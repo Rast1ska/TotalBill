@@ -57,8 +57,6 @@ class TotalBillView: UIView {
             subTextField.leftAnchor.constraint(equalTo: leftAnchor),
             subTextField.rightAnchor.constraint(equalTo: rightAnchor),
             subTextField.heightAnchor.constraint(equalToConstant: 100)
-            
-            
         ])
     }
 }
