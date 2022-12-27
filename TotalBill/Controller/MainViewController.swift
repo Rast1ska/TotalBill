@@ -32,6 +32,7 @@ class MainViewController: UIViewController {
         label.textColor = .black
         label.font = UIFont(name: "Avenir Next Bold", size: 15)
         label.minimumScaleFactor = 0.5
+        label.textAlignment = .center
         return label
     }()
     
@@ -43,16 +44,22 @@ class MainViewController: UIViewController {
         button.backgroundColor = #colorLiteral(red: 0.5647058824, green: 0.1529411765, blue: 0.7450980392, alpha: 1)
         button.titleLabel?.font = UIFont(name: "Avenir Next", size: 20)
         button.layer.cornerRadius = 10
+        button.addTarget(self, action: #selector(calculateButtonTapped), for: .touchUpInside)
         return button
     }()
     
     let totalBillView = TotalBillView()
+    
     let personsView = PersonsView()
-
+    
+    let tipsView = TipsView()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupViews()
         setConstraints()
+        addTap()
     }
     
     func setupViews() {
@@ -64,7 +71,31 @@ class MainViewController: UIViewController {
         view.addSubview(totalBillView)
         view.addSubview(personsView)
         view.addSubview(calculateButton)
+        view.addSubview(tipsView)
     }
+    
+    func addTap() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+        
+    }
+    
+    @objc func hideKeyboard() {
+        view.endEditing(true)
+    }
+    
+    @objc func calculateButtonTapped() {
+        guard let totalBill = totalBillView.subTextField.text,
+              let totalBillInt = Int(totalBill) else { return }
+        
+        let sum = totalBillInt + totalBillInt * tipsView.tipsCount / 100
+        
+        let result = sum / personsView.counter
+        descriptionLable.text = "\(result) per person"
+    }
+    
+  
 }
 
 extension MainViewController {
@@ -92,6 +123,11 @@ extension MainViewController {
             personsView.leftAnchor.constraint(equalTo: descriptionLable.leftAnchor),
             personsView.rightAnchor.constraint(equalTo: descriptionLable.rightAnchor),
             personsView.heightAnchor.constraint(equalToConstant: 130),
+            
+            tipsView.topAnchor.constraint(equalTo: personsView.bottomAnchor, constant: 10),
+            tipsView.leftAnchor.constraint(equalTo: descriptionLable.leftAnchor),
+            tipsView.rightAnchor.constraint(equalTo: descriptionLable.rightAnchor),
+            tipsView.heightAnchor.constraint(equalToConstant: 130),
             
             calculateButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
             calculateButton.leftAnchor.constraint(equalTo: descriptionLable.leftAnchor),

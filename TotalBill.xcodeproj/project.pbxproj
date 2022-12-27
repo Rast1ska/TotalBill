@@ -14,6 +14,8 @@
 		1730489D2958B80100882EAD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1730489B2958B80100882EAD /* LaunchScreen.storyboard */; };
 		173048A52958C1AF00882EAD /* TotalBillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173048A42958C1AF00882EAD /* TotalBillView.swift */; };
 		173048A7295A362B00882EAD /* PersonsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173048A6295A362B00882EAD /* PersonsView.swift */; };
+		173048AB295B196200882EAD /* TipsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173048AA295B196200882EAD /* TipsCollectionViewCell.swift */; };
+		173048B3295B1B1A00882EAD /* TipsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173048B2295B1B1A00882EAD /* TipsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		1730489E2958B80100882EAD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		173048A42958C1AF00882EAD /* TotalBillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalBillView.swift; sourceTree = "<group>"; };
 		173048A6295A362B00882EAD /* PersonsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonsView.swift; sourceTree = "<group>"; };
+		173048AA295B196200882EAD /* TipsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsCollectionViewCell.swift; sourceTree = "<group>"; };
+		173048B2295B1B1A00882EAD /* TipsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,16 +62,66 @@
 		1730488F2958B7FE00882EAD /* TotalBill */ = {
 			isa = PBXGroup;
 			children = (
+				173048B1295B19C900882EAD /* SupportFiles */,
+				173048B0295B19BC00882EAD /* Resources */,
+				173048AE295B198B00882EAD /* Views */,
+				173048AD295B197E00882EAD /* Controller */,
+				173048AC295B196F00882EAD /* Application */,
+			);
+			path = TotalBill;
+			sourceTree = "<group>";
+		};
+		173048AC295B196F00882EAD /* Application */ = {
+			isa = PBXGroup;
+			children = (
 				173048902958B7FE00882EAD /* AppDelegate.swift */,
 				173048922958B7FE00882EAD /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		173048AD295B197E00882EAD /* Controller */ = {
+			isa = PBXGroup;
+			children = (
 				173048942958B7FE00882EAD /* MainViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		173048AE295B198B00882EAD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				173048AF295B199E00882EAD /* Cells */,
 				173048A42958C1AF00882EAD /* TotalBillView.swift */,
 				173048A6295A362B00882EAD /* PersonsView.swift */,
+				173048B2295B1B1A00882EAD /* TipsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		173048AF295B199E00882EAD /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				173048AA295B196200882EAD /* TipsCollectionViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		173048B0295B19BC00882EAD /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				173048992958B80100882EAD /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		173048B1295B19C900882EAD /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
 				1730489B2958B80100882EAD /* LaunchScreen.storyboard */,
 				1730489E2958B80100882EAD /* Info.plist */,
 			);
-			path = TotalBill;
+			path = SupportFiles;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -143,6 +197,8 @@
 				173048A52958C1AF00882EAD /* TotalBillView.swift in Sources */,
 				173048952958B7FE00882EAD /* MainViewController.swift in Sources */,
 				173048912958B7FE00882EAD /* AppDelegate.swift in Sources */,
+				173048AB295B196200882EAD /* TipsCollectionViewCell.swift in Sources */,
+				173048B3295B1B1A00882EAD /* TipsView.swift in Sources */,
 				173048A7295A362B00882EAD /* PersonsView.swift in Sources */,
 				173048932958B7FE00882EAD /* SceneDelegate.swift in Sources */,
 			);
@@ -285,7 +341,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6CZNS4ZZ97;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TotalBill/Info.plist;
+				INFOPLIST_FILE = TotalBill/SupportFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -312,7 +368,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 6CZNS4ZZ97;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TotalBill/Info.plist;
+				INFOPLIST_FILE = TotalBill/SupportFiles/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

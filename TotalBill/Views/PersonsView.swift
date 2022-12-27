@@ -9,6 +9,8 @@ import UIKit
 
 class PersonsView: UIView {
     
+    var counter = 1
+    
     let titleLable: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -31,7 +33,9 @@ class PersonsView: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitle("-", for: .normal)
         button.tintColor = #colorLiteral(red: 0.3764705882, green: 0.4196078431, blue: 0.4901960784, alpha: 1)
+        button.isEnabled = false
         button.titleLabel?.font = UIFont(name: "Avenir Next", size: 80)
+        button.addTarget(self, action: #selector(minusButtonTapped), for: .touchUpInside)
         return button
     }()
     
@@ -41,13 +45,14 @@ class PersonsView: UIView {
         button.setTitle("+", for: .normal)
         button.tintColor = #colorLiteral(red: 0.3764705882, green: 0.4196078431, blue: 0.4901960784, alpha: 1)
         button.titleLabel?.font = UIFont(name: "Avenir Next", size: 60)
+        button.addTarget(self, action: #selector(plusButtonTapped), for: .touchUpInside)
         return button
     }()
     
     let counterLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "0"
+        label.text = "1"
         label.textColor = .black
         label.font = UIFont(name: "Avenir Next Bold", size: 48)
         label.textAlignment = .center
@@ -72,6 +77,21 @@ class PersonsView: UIView {
         bacgroundGrayView.addSubview(minusButton)
         bacgroundGrayView.addSubview(plusButton)
         bacgroundGrayView.addSubview(counterLabel)
+    }
+    
+    @objc func minusButtonTapped() {
+        counter -= 1
+        counterLabel.text = String(counter)
+        
+        if counter == 1 {
+            minusButton.isEnabled = false
+        }
+    }
+    
+    @objc func plusButtonTapped() {
+        counter += 1
+        counterLabel.text = String(counter)
+        minusButton.isEnabled = true
     }
     
     func setConstraints() {
