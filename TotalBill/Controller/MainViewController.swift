@@ -31,7 +31,8 @@ class MainViewController: UIViewController {
         label.text = "Enter the invoice amount and click \"Calculate\""
         label.textColor = .black
         label.textAlignment = .center
-        label.numberOfLines = 2
+        label.font = UIFont(name: "Avenir Next Bold", size: 14)
+        label.minimumScaleFactor = 0.5
         return label
     }()
     
@@ -65,7 +66,6 @@ class MainViewController: UIViewController {
         view.backgroundColor = #colorLiteral(red: 0.9960784316, green: 0.9960785508, blue: 0.9960785508, alpha: 1)
         
         titleLable.font = UIFont(name: "Avenir Next Bold", size: view.frame.height * 0.046)
-        descriptionLable.font = UIFont(name: "Avenir Next Bold", size: view.frame.height * 0.019)
         calculateButton.titleLabel?.font = UIFont(name: "Futura", size: view.frame.width / 20)
         
         view.addSubview(titleLable)
@@ -139,7 +139,7 @@ extension MainViewController {
             calculateButton.leftAnchor.constraint(equalTo: descriptionLable.leftAnchor),
             calculateButton.rightAnchor.constraint(equalTo: descriptionLable.rightAnchor),
             calculateButton.heightAnchor.constraint(greaterThanOrEqualTo: view.heightAnchor, multiplier: 0.1),
-            calculateButton.bottomAnchor.constraint(lessThanOrEqualTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10)
+            calculateButton.bottomAnchor.constraint(lessThanOrEqualTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -5)
         ])
     }
 }
